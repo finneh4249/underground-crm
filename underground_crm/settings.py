@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",
     "underground_email",
+    "underground_payments",
 ]
 
 MIDDLEWARE = [
@@ -133,6 +134,12 @@ Q_CLUSTER = {
 #  https://django-q.readthedocs.io/en/latest/configure.html#error-reporter
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Stripe — set all three in environment. STRIPE_PUBLISHABLE_KEY is forwarded to
+# the browser; STRIPE_SECRET_KEY and STRIPE_WEBHOOK_SECRET stay server-side only.
+STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY", "")
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "")
+STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", "")
 
 DATABASES = {
     "default": {
