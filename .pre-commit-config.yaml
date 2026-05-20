@@ -13,5 +13,5 @@ repos:
         types: [python]
         args:
           - --load-plugins=pylint_django
-          - --django-settings-module=underground_crm.pylint_settings
+          - --django-settings-module=underground_crm.settings
           - --errors-only
